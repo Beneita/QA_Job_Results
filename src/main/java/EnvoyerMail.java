@@ -11,8 +11,8 @@ public class EnvoyerMail {
 	// déclaration de variable
 	private String username = "poecfantastic.five";
 	private String password = "PoecFantastic";
-	private String envoyeur = "poecfantastic.five@gmail.com";
-	private String destinataire = "garnier.oeliarisoa@gmail.com";
+	private String envoyeur = "poecfantastic.five@gmail.com";	
+	private String destinataire = "imene.chikaoui@gmail.com";
 	private String sujet_mail = "Liste offre emploi testeur 7";
 	private String contenu_mail=
 	"Bonjour, \n"+
@@ -52,7 +52,7 @@ public class EnvoyerMail {
 		
 		// Etape 3 : Envoyer le message
 		Transport.send(message);
-		System.out.println("Le mail a été envoyé avec succès à : "+ username);
+		System.out.println("Le mail a été envoyé avec succès à : "+ destinataire);
 		} catch (MessagingException e) {
 		throw new RuntimeException(e);
 		} 
