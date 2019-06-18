@@ -13,7 +13,7 @@ public class MainIndeed {
 		EnvoyerMail test= new EnvoyerMail();
 		test.envoyer();	 // envoi mail
 		
-        ia.pause(30); 
+        ia.pause(20); 
         ia.closeIndeed();
     }
 }
