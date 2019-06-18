@@ -32,11 +32,11 @@ public class OffreEmploi {
 		this.description = description;
 	}
 
-	public OffreEmploi(String titre, String lien, String description) {
+	public OffreEmploi(String titre, String lien/* , String description */) {
 		super();
 		this.titre = titre;
 		this.lien = lien;
-		this.description = description;
+		// this.description = description;
 	}
 
 	// OffreEmploi offre = new OffreEmploi(String, String, String);

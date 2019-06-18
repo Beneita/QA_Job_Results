@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class MainIndeed {
 
 	/*
@@ -21,11 +23,14 @@ public class MainIndeed {
 
 	public static void main(String[] args) {
 		System.out.println("coucou ici");
+		new MyDriver();
 		IndeedAccess ia = new IndeedAccess();
 		ia.openIndeed();
 		ia.enterKeywordsWhat();
 		ia.enterKeywordsWhere();
 		ia.clickSearch();
+		SortJobOffers jobOff = new SortJobOffers();
+		List<OffreEmploi> listOffres = jobOff.ExtractOffers();
 		// ia.pause(30);
 		// ia.closeIndeed();
 	}

@@ -1,46 +1,34 @@
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class IndeedAccess {
-
 	private static final String URL = "https://www.indeed.fr/";
-	private static final String PATH_CHROME_DRIVER = "C:\\chromedriver_win32\\chromedriver.exe";
-	public static WebDriver driver;
 
 	public IndeedAccess() {
 
 	}
 
-	public static void openIndeed() {
+	public void openIndeed() {
 		// Open Home page
-		System.setProperty("webdriver.chrome.driver", PATH_CHROME_DRIVER);
-		driver = new ChromeDriver();
-		driver.get(URL);
+		MyDriver.driver.get(URL);
 	}
 
-	public static void closeIndeed() {
-		// Close Home page
-		driver.close();
-	}
-
-	public static void enterKeywordsWhat() {
+	public void enterKeywordsWhat() {
 		// Enter the Keywords for the job
-		driver.findElement(By.id("text-input-what")).sendKeys("testeur logiciel");
+		MyDriver.driver.findElement(By.id("text-input-what")).sendKeys("testeur logiciel");
 	}
 
-	public static void enterKeywordsWhere() {
+	public void enterKeywordsWhere() {
 		// Enter the Keywords for the location
-		WebElement text = driver.findElement(By.xpath("//*[@id=\"text-input-where\"]"));
+		WebElement text = MyDriver.driver.findElement(By.xpath("//*[@id=\"text-input-where\"]"));
 		text.sendKeys(Keys.chord(Keys.CONTROL, "a"), "Alpes-maritimes");
 	}
 
-	public static void clickSearch() {
+	public void clickSearch() {
 		// Click on the button "Rechercher"
-		WebElement element = driver.findElement(By.xpath("//*[@id=\"whatWhere\"]/div/div/form/div[3]/button"));
+		WebElement element = MyDriver.driver.findElement(By.xpath("//*[@id=\"whatWhere\"]/div/div/form/div[3]/button"));
 		element.click();
 	}
 

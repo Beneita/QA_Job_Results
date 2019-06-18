@@ -1,7 +1,7 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
+import java.util.List;
 
-import tuto.eclipse.jal.selenium.loaders.MyDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class SortJobOffers {
 
@@ -9,11 +9,20 @@ public class SortJobOffers {
 	 * public String lien = public String description = OffreEmploi offre = new
 	 * OffreEmploi(titre, lien, description);
 	 */
+	public List<OffreEmploi> offrEmploi;
 
-	public void ExtractText() {
-		Select s = new Select(MyDriver.driver.findElement(By.cssSelector(".jobtitle.turnstileLink")));
+	public List<OffreEmploi> ExtractOffers() {
+		List<WebElement> elmtOffre = MyDriver.driver.findElements(By.cssSelector(".jobtitle.turnstileLink"));
 
-		System.out.println(titre.getText());
+		for (int i = 0; i < elmtOffre.size(); i++) {
+			String titre = elmtOffre.get(i).getText();
+			String lien = elmtOffre.get(i).getAttribute("href");
+			// String descptif;
+			OffreEmploi offre = new OffreEmploi(titre, lien/* , descptif */);
+			// offrEmploi.add(offre);
+			System.out.println(offre.getLien());
+		}
+		return offrEmploi;
 	}
 
 }
