@@ -2,27 +2,8 @@ import java.util.List;
 
 public class MainIndeed {
 
-	/*
-	 * public static WebDriver driver;
-	 * 
-	 * public static void main(String[] args) {
-	 * 
-	 * System.out.println("coucou Imène"); private static final String URL =
-	 * "https://www.indeed.fr/"; private static final String PATH_CHROME_DRIVER =
-	 * "C:\\chromedriver_win32\\chromedriver.exe";
-	 * 
-	 * 
-	 * System.setProperty("webdriver.chrome.driver",
-	 * "C:\\chromedriver_win32\\chromedriver.exe"); driver = new ChromeDriver();
-	 * driver.manage().window().maximize();
-	 * driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-	 * driver.get("https://www.indeed.fr/");
-	 * 
-	 * }
-	 */
-
 	public static void main(String[] args) {
-		System.out.println("coucou ici");
+		System.out.println( "Lancement de notre recherche de job de testeur!" );
 		new MyDriver();
 		IndeedAccess ia = new IndeedAccess();
 		ia.openIndeed();
@@ -31,8 +12,10 @@ public class MainIndeed {
 		ia.clickSearch();
 		SortJobOffers jobOfr = new SortJobOffers();
 		List<OffreEmploi> listOffres = jobOfr.ExtractOffers();
+		
+		EnvoyerMail test= new EnvoyerMail();
+		test.envoyer();	 // envoi mail
 		// ia.pause(30);
 		// ia.closeIndeed();
 	}
-
 }
