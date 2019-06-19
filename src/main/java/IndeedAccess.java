@@ -42,5 +42,10 @@ public class IndeedAccess {
 			Thread.currentThread().interrupt();
 		}
 	}
+	
+	public void closeIndeed() {
+		// close home Page
+		MyDriver.driver.close();
+	}
 
 }
