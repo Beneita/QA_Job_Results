@@ -29,8 +29,8 @@ public class MainIndeed {
 		ia.enterKeywordsWhat();
 		ia.enterKeywordsWhere();
 		ia.clickSearch();
-		SortJobOffers jobOff = new SortJobOffers();
-		List<OffreEmploi> listOffres = jobOff.ExtractOffers();
+		SortJobOffers jobOfr = new SortJobOffers();
+		List<OffreEmploi> listOffres = jobOfr.ExtractOffers();
 		// ia.pause(30);
 		// ia.closeIndeed();
 	}

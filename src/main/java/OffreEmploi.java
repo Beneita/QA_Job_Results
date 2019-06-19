@@ -1,12 +1,8 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class OffreEmploi {
 	private String titre;
 	private String lien;
 	private String description;
-
-	List<OffreEmploi> offres = new ArrayList<OffreEmploi>();
 
 	public String getTitre() {
 		return titre;
@@ -32,13 +28,11 @@ public class OffreEmploi {
 		this.description = description;
 	}
 
-	public OffreEmploi(String titre, String lien/* , String description */) {
+	public OffreEmploi(String titre, String lien, String description) {
 		super();
 		this.titre = titre;
 		this.lien = lien;
-		// this.description = description;
+		this.description = description;
 	}
-
-	// OffreEmploi offre = new OffreEmploi(String, String, String);
 
 }

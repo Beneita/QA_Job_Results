@@ -12,6 +12,8 @@ public class IndeedAccess {
 
 	public void openIndeed() {
 		// Open Home page
+
+		MyDriver.driver.manage().window().maximize();
 		MyDriver.driver.get(URL);
 	}
 
