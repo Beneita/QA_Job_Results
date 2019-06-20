@@ -10,7 +10,7 @@ public class MainIndeed {
 		//open home page and do request
 		IndeedAccess ia = new IndeedAccess();
 		ia.openIndeed(); // open homePage
-		ia.enterKeywordsWhat(); //enter Keywords
+		/*ia.enterKeywordsWhat(); //enter Keywords
 		ia.enterKeywordsWhere(); // enter location 
 		ia.clickSearch(); // click on search
 		
@@ -29,7 +29,7 @@ public class MainIndeed {
 		}		
 		EnvoyerMail test= new EnvoyerMail();
 		test.envoyerV2(offreTotal);	 // envoi mail		
-		
+		*/
 		//pause and close home page
 		ia.pause(10);
 		ia.closeIndeed();

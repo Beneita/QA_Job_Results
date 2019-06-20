@@ -3,9 +3,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-public class IndeedAccess {
-	private static final String URL = "https://www.indeed.fr/";
+import annex_data.HomePageConstants;
 
+public class IndeedAccess {
+	//private static final String URL = "https://www.indeed.fr/";
+	//private static final String URL = HomePageConstants.INDEED_HOME_PAGE;
+	//private static final String URL = HomePageConstants.APEC_HOME_PAGE;
+	private static final String URL = HomePageConstants.METEOJOB_HOME_PAGE;
+	
 	public IndeedAccess() {
 
 	}
