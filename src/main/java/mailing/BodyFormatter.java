@@ -12,7 +12,7 @@ public class BodyFormatter {
 
 		// add selected results in mail
 		for (int i = 0; i < lesOffres.size(); i++) {
-			offre = "*******************\n Site : " + (lesOffres.get(i)).getSite() + "\n Date : "
+			offre = offre+"*******************\n Site : " + (lesOffres.get(i)).getSite() + "\n Date : "
 					+ (lesOffres.get(i)).getDateAnnonce() + "\n Titre : " + (lesOffres.get(i)).getTitre() + "\n Lien : "
 					+ (lesOffres.get(i)).getLien() + "\n Description : " + (lesOffres.get(i)).getDescription()
 					+ "\n Localisation : " + (lesOffres.get(i)).getLocalisation() + "\n*******************";
