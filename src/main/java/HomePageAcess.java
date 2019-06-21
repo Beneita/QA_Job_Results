@@ -49,16 +49,23 @@ public class HomePageAcess {
 		WebElement text = MyDriver.driver.findElement(By.xpath("//*[@id=\"text-input-where\"]"));
 		text.sendKeys(Keys.chord(Keys.CONTROL, "a"), "Alpes-maritimes");
 	}
+	
+	public void enterKeywordsWhereApec() {
+		// Enter the Keywords for the location
+		//MyDriver.driver.findElements(By.cssSelector(".form-control.lieuautocomplete.ui-autocomplete-input")).get(1).sendKeys("Alpes");
+		MyDriver.driver.findElements(By.cssSelector(".form-control.lieuautocomplete.ui-autocomplete-input")).get(1).click();
+	}
 
 	public void clickSearchIndeed() {
 		// Click on the button "Rechercher"
 		WebElement element = MyDriver.driver.findElement(By.xpath("//*[@id=\"whatWhere\"]/div/div/form/div[3]/button"));
 		element.click();
 	}
-	public void clickSearchApec() {
+	public void clickSearchApec() {		
 		// Click on the button "Rechercher"
 		WebElement element = MyDriver.driver.findElement(By.xpath("//*[@id=\"section-recherche\"]/div[2]/div[1]/form/div[2]/button"));
 		element.click();
+		
 	}
 	
 	public void openNewTab() {
