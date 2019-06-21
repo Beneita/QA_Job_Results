@@ -29,7 +29,7 @@ public class ExtracteurOffresMultiSite {
 		int sizeCollection = elmtOffre.size();
 		if (sizeCollection != 0) {// si la collection de web elements n'est pas vide
 			// boucler sur chaque élément de la collection de web elements
-			for (int i = 0; i < sizeCollection; i++) {
+			for (int i = 0; i < NOMBRE_OFFRES; i++) {
 
 				// extraire le titre et forcer en minuscule, puis l'assigner à la variable titre
 				String titre = elmtOffre.get(i).getAttribute("title").toLowerCase();
