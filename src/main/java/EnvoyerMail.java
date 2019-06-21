@@ -13,7 +13,7 @@ public class EnvoyerMail {
 	private String password = "PoecFantastic";
 	private String envoyeur = "poecfantastic.five@gmail.com";	
 	private String destinataire = "garnier.oeliarisoa@gmail.com";
-	private String sujet_mail = "Liste offre emploi testeur 34 ";
+	private String sujet_mail = "Liste offre emploi testeur 35 ";
 	private String contenu_mail=
 	"Bonjour, \n"+
 	"Vous trouverez ci-après la liste des liens des offres d'emploi les plus pertinentes. \n"+

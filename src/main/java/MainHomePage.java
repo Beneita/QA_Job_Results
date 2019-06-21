@@ -10,9 +10,8 @@ public class MainHomePage {
 		new MyDriver();
 		
 		//open home page and do request
-		HomePageAcess hp = new HomePageAcess();	
-		HomePageAcess hp2 = new HomePageAcess();	
-		//create content mail
+		HomePageAcess hp = new HomePageAcess();				
+		/*//create content mail
 		String offreTotal="Bonjour, \n"+ 
 				"Vous trouverez ci-après l'ensemble des offres d'emploi de Testeur Logiciel : \n";
 		
@@ -37,14 +36,15 @@ public class MainHomePage {
 		hp.pause(3); //pause		
 		hp.openNewTab(); //open new Tab
 		
-		
+		*/
 		//APEC	
 		//open, enter keywords and location, search			
 		hp.openHomePage(HomePageConstants.APEC_HOME_PAGE); // open homePage
 		String jobSite2="HomePageConstants.APEC_HOME_PAGE";
 		hp.enterKeywordsWhat(jobSite2); //enter Keywords
-		//hp.enterKeywordsWhere(); // enter location 
-		hp.clickSearchApec(); // click on search
+		hp.pause(2);
+		hp.enterKeywordsWhereApec(); // enter location 
+		/*hp.clickSearchApec(); // click on search
 		//sort job offers
 		//SortJobOffers jobOfrApec = new SortJobOffers();
 		//List<OffreEmploi> listOffresApec = jobOfrApec.ExtractOffersApec1();
@@ -54,7 +54,7 @@ public class MainHomePage {
 		
 		//send mail
 		EnvoyerMail test= new EnvoyerMail();
-		test.envoyerV2(offreTotal);	 // envoi mail	
+		test.envoyerV2(offreTotal);	 // envoi mail	*/
 		
 		// close homePage
 		//hp.closeHomePage();
