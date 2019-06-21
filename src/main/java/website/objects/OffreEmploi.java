@@ -1,22 +1,20 @@
+package website.objects;
+
 import java.time.LocalDate;
-
-
 
 public class OffreEmploi {
 
-	private String titre;
+	private String titre = "";
 
-	private String lien;
+	private String lien = "";
 
-	private String description;
+	private String description = "";
 
-	private String localisation;
+	private String localisation = "";
 
-	private String site;
+	private String site = "";
 
-	private LocalDate datAnnonce;
-
-
+	private LocalDate datAnnonce = LocalDate.now();
 
 	public String getTitre() {
 
@@ -24,15 +22,11 @@ public class OffreEmploi {
 
 	}
 
-
-
 	public void setTitre(String titre) {
 
 		this.titre = titre;
 
 	}
-
-
 
 	public String getLien() {
 
@@ -40,15 +34,11 @@ public class OffreEmploi {
 
 	}
 
-
-
 	public void setLien(String lien) {
 
 		this.lien = lien;
 
 	}
-
-
 
 	public String getDescription() {
 
@@ -56,15 +46,11 @@ public class OffreEmploi {
 
 	}
 
-
-
 	public void setDescription(String description) {
 
 		this.description = description;
 
 	}
-
-
 
 	public String getLocalisation() {
 
@@ -72,15 +58,11 @@ public class OffreEmploi {
 
 	}
 
-
-
 	public void setLocalisation(String localisation) {
 
 		this.localisation = localisation;
 
 	}
-
-
 
 	public String getSite() {
 
@@ -88,15 +70,11 @@ public class OffreEmploi {
 
 	}
 
-
-
 	public void setSite(String site) {
 
 		this.site = site;
 
 	}
-
-
 
 	public LocalDate getDateAnnonce() {
 
@@ -104,15 +82,11 @@ public class OffreEmploi {
 
 	}
 
-
-
 	public void setDateAnnonc(LocalDate datAnnonce) {
 
 		this.datAnnonce = datAnnonce;
 
 	}
-
-
 
 	public OffreEmploi(String titre, String lien, String description, String localisation, String site,
 
@@ -134,7 +108,8 @@ public class OffreEmploi {
 
 	}
 
-
+	public OffreEmploi() {
+		super();
+	}
 
 }
-
