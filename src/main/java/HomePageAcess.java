@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import annex_data.HomePageConstants;
@@ -13,6 +16,7 @@ public class HomePageAcess {
 		MyDriver.driver.manage().window().maximize();
 		MyDriver.driver.get(URL);
 	}
+	
 
 	/*public void enterKeywordsWhat() {
 		// Enter the Keywords for the job
@@ -55,6 +59,13 @@ public class HomePageAcess {
 		// Click on the button "Rechercher"
 		WebElement element = MyDriver.driver.findElement(By.xpath("//*[@id=\"section-recherche\"]/div[2]/div[1]/form/div[2]/button"));
 		element.click();
+	}
+	
+	public void openNewTab() {
+		//open a new Tab
+		((JavascriptExecutor)MyDriver.driver).executeScript("window.open()");
+		ArrayList<String> tabs = new ArrayList<String>(MyDriver.driver.getWindowHandles());
+		MyDriver.driver.switchTo().window(tabs.get(1));
 	}
 
 	public static void pause(int seconds) {
