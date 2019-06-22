@@ -139,8 +139,7 @@ public class ExtracteurOffresMultiSite {
 		HomePageAcess hp = new HomePageAcess();
 
 		for (int i = 0; i < NOMBRE_OFFRES; i++) {
-			System.out.println(
-					"Recuperations des offres de Meteojob: On est sur la page de resultatsde la recherche" + i);
+
 			OffreEmploi offre = new OffreEmploi();
 			if (MyDriver.driver.getTitle().contains("Meteojob")) {
 				offre.setSite("MeteoJob");
