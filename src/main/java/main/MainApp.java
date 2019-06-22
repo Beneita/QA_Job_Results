@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import config.MyDriver;
+import mailing.BodyFormatter;
+import mailing.EnvoyerMail;
 import website.objects.OffreEmploi;
 import website.objects.pageObjects.ApecPageObject;
 import website.objects.pageObjects.HomePageAcess;
+import website.objects.pageObjects.IndeedPageObject;
+import website.objects.pageObjects.MeteoJobPageObject;
 
 public class MainApp {
 	public static void main(String[] args) {
@@ -15,14 +19,18 @@ public class MainApp {
 
 		HomePageAcess hp = new HomePageAcess();
 		List<OffreEmploi> lesOffres = new ArrayList<>();
-		// lesOffres.addAll(IndeedPageObject.run());
-		// hp.openNewTab();
+
+		lesOffres.addAll(IndeedPageObject.run());
+
+		hp.openNewTab();
 		lesOffres.addAll(ApecPageObject.run());
 
-		// send mail
-		// EnvoyerMail serviceEnvoieMail = new EnvoyerMail();
-		// serviceEnvoieMail.envoyerV2(BodyFormatter.formatMailBody(lesOffres)); //
-		// envoi mail */
+		hp.openNewTab();
+		lesOffres.addAll(MeteoJobPageObject.run());
+		System.out.println(lesOffres);
 
+		// send mail
+		EnvoyerMail serviceEnvoieMail = new EnvoyerMail();
+		serviceEnvoieMail.envoyerV2(BodyFormatter.formatMailBody(lesOffres));
 	}
 }

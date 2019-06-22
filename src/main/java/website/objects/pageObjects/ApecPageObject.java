@@ -14,14 +14,13 @@ import website.objects.OffreEmploi;
 public class ApecPageObject {
 
 	public static List<OffreEmploi> run() {
-		// APEC
 		List<OffreEmploi> lesOffres = new ArrayList<>();
 
 		// open home page and do request
 		HomePageAcess hp = new HomePageAcess();
 
 		// open, enter keywords and location, search
-		hp.openHomePage(WebsitesURLs.APEC_HOME_PAGE); // open homePage
+		hp.openHomePage(WebsitesURLs.APEC_HOME_PAGE); // open homePage Apec
 		String jobSite2 = "HomePageConstants.APEC_HOME_PAGE";
 		hp.enterKeywordsWhat(jobSite2); // enter Keywords
 		hp.pause(2);
@@ -59,7 +58,6 @@ public class ApecPageObject {
 		String offreLocalisation = MyDriver.driver.findElements(By.cssSelector(".pull-left span.ng-scope")).get(i)
 				.getText();
 		return offreLocalisation;
-
 	}
 
 }

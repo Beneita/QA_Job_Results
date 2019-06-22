@@ -12,7 +12,7 @@ public class IndeedPageObject {
 		HomePageAcess hp = new HomePageAcess();
 
 		// INDEED //open, enter keywords and location, search
-		hp.openHomePage(WebsitesURLs.INDEED_HOME_PAGE); // open homePage String
+		hp.openHomePage(WebsitesURLs.INDEED_HOME_PAGE); // open homePage Indeed
 		String jobSite = "HomePageConstants.INDEED_HOME_PAGE";
 		hp.enterKeywordsWhat(jobSite);
 

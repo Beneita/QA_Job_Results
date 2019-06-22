@@ -129,10 +129,33 @@ public class ExtracteurOffresMultiSite {
 				offre.setDescription(ApecPageObject.getDescriptionOffre(2 * i));
 				offre.setLien(ApecPageObject.getLien(2 * i));
 			}
-			System.out.println("************" + "\n" + offre.getTitre() + "\n" + offre.getDescription() + "\n"
-					+ offre.getLien() + "\n*****************");
 			lesOffres.add(offre);
 		}
+		return lesOffres;
+	}
+
+	public List<OffreEmploi> extractOffersMeteoJob() {
+		List<OffreEmploi> lesOffres = new ArrayList<>();
+		HomePageAcess hp = new HomePageAcess();
+
+		for (int i = 0; i < NOMBRE_OFFRES; i++) {
+			System.out.println(
+					"Recuperations des offres de Meteojob: On est sur la page de resultatsde la recherche" + i);
+			OffreEmploi offre = new OffreEmploi();
+			if (MyDriver.driver.getTitle().contains("Meteojob")) {
+				offre.setSite("MeteoJob");
+			} else {
+				offre.setSite("rien");
+			}
+			offre.setTitre(MeteoJobPageObject.getTitreOffre(i));
+			offre.setDateAnnonc(MeteoJobPageObject.getDateAnnonce(i));
+			offre.setLocalisation(MeteoJobPageObject.getLocalisation(i));
+			offre.setDescription(MeteoJobPageObject.getDescriptionOffre(i));
+			offre.setLien(MeteoJobPageObject.getLien(i));
+
+			lesOffres.add(offre);
+		}
+
 		return lesOffres;
 	}
 

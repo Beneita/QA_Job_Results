@@ -40,6 +40,10 @@ public class HomePageAcess {
 			break;
 		case "HomePageConstants.METEOJOB_HOME_PAGE":
 			System.out.println("Requête sur MeteoJob");
+			final String TESTEUR = "Testeur d'applications (H/F)";
+			MyDriver.driver.findElements(By.cssSelector(".form-control.tt-input")).get(2).sendKeys(TESTEUR);
+			// MyDriver.driver.findElements(By.cssSelector(".form-control.tt-input")).get(3).sendKeys(Keys.ENTER);
+
 			break;
 		default:
 			System.out.println("unknow job site");
@@ -54,7 +58,7 @@ public class HomePageAcess {
 	}
 
 	/**
-	 * Enter the Keywords for the location<br>
+	 * Enter the Keywords for the location for site Apec<br>
 	 * Par defaut on selectionne <b>Alpes-Maritimes - 06</b>
 	 */
 	public void enterKeywordsWhereApec() {
@@ -63,6 +67,17 @@ public class HomePageAcess {
 				.sendKeys(ALPES_MARITIMES);
 		MyDriver.driver.findElements(By.cssSelector(".form-control.lieuautocomplete.ui-autocomplete-input")).get(0)
 				.sendKeys(Keys.ENTER);
+
+	}
+
+	/**
+	 * Enter the Keywords for the location for site MeteoJob<br>
+	 * Par defaut on selectionne <b>Alpes-Maritimes</b>
+	 */
+	public void enterKeywordsWhereMeteoJob() {
+		final String ALPES_MARITIMES = "Alpes-Maritimes";
+		MyDriver.driver.findElements(By.cssSelector(".form-control.tt-input")).get(3).sendKeys(ALPES_MARITIMES);
+		MyDriver.driver.findElements(By.cssSelector(".form-control.tt-input")).get(3).sendKeys(Keys.ENTER);
 
 	}
 
