@@ -15,17 +15,19 @@ import website.objects.pageObjects.MeteoJobPageObject;
 public class MainApp {
 	public static void main(String[] args) {
 		System.out.println("Lancement de notre recherche de job de testeur!");
-		new MyDriver();
 
+		new MyDriver();
 		HomePageAcess hp = new HomePageAcess();
 		List<OffreEmploi> lesOffres = new ArrayList<OffreEmploi>();
-
+		// ajout des offres indeed à la collection d'offres d'emploi
 		lesOffres.addAll(IndeedPageObject.run());
-
-		hp.openNewTab();
+		// ouverture dans 1 nouvel onglet
+		hp.openNewTab(1);
+		// ajout des offres meteojob à la collection d'offres d'emploi
 		lesOffres.addAll(MeteoJobPageObject.run());
-
-		hp.openNewTab();
+		// ouverture dans 1 nouvel onglet
+		hp.openNewTab(2);
+		// ajout des offres apec à la collection d'offres d'emploi
 		lesOffres.addAll(ApecPageObject.run());
 
 		for (int i = 0; i < lesOffres.size(); i++) {

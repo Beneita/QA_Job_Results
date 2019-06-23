@@ -102,8 +102,8 @@ public class MeteoJobPageObject {
 			}
 			// datestring devient un format jj//mm//aaaa
 			dateString = jour + "/" + mois + "/" + "2019";
+			dateOffre = LocalDate.parse(dateString, formatter);
 		}
-		dateOffre = LocalDate.parse(dateString, formatter);
 		return dateOffre;
 	}
 

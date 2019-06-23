@@ -95,11 +95,11 @@ public class HomePageAcess {
 
 	}
 
-	public void openNewTab() {
+	public void openNewTab(int i) {
 		// open a new Tab
 		((JavascriptExecutor) MyDriver.driver).executeScript("window.open()");
 		ArrayList<String> tabs = new ArrayList<String>(MyDriver.driver.getWindowHandles());
-		MyDriver.driver.switchTo().window(tabs.get(1));
+		MyDriver.driver.switchTo().window(tabs.get(i));
 	}
 
 	public void pause(int seconds) {
