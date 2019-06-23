@@ -18,16 +18,21 @@ public class MainApp {
 		new MyDriver();
 
 		HomePageAcess hp = new HomePageAcess();
-		List<OffreEmploi> lesOffres = new ArrayList<>();
+		List<OffreEmploi> lesOffres = new ArrayList<OffreEmploi>();
 
 		lesOffres.addAll(IndeedPageObject.run());
 
 		hp.openNewTab();
-		lesOffres.addAll(ApecPageObject.run());
+		lesOffres.addAll(MeteoJobPageObject.run());
 
 		hp.openNewTab();
-		lesOffres.addAll(MeteoJobPageObject.run());
-		System.out.println(lesOffres);
+		lesOffres.addAll(ApecPageObject.run());
+
+		for (int i = 0; i < lesOffres.size(); i++) {
+			System.out.println(lesOffres.get(i).getSite() + (i + 1) + ":\n " + lesOffres.get(i).getTitre() + "\n "
+					+ lesOffres.get(i).getDateAnnonce() + "\n " + lesOffres.get(i).getLocalisation() + "\n "
+					+ lesOffres.get(i).getDescription() + "\n " + lesOffres.get(i).getLien());
+		}
 
 		// send mail
 		EnvoyerMail serviceEnvoieMail = new EnvoyerMail();

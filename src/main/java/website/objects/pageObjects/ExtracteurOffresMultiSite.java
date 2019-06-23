@@ -12,7 +12,7 @@ import website.objects.OffreEmploi;
 
 public class ExtracteurOffresMultiSite {
 
-	private static final int NOMBRE_OFFRES = 3;
+	private static final int NOMBRE_OFFRES = 5;
 
 	public List<OffreEmploi> extractOffersIndeed() {
 		// listes de web elements

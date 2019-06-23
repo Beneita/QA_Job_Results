@@ -51,10 +51,10 @@ public class HomePageAcess {
 
 	}
 
-	public void enterKeywordsWhere() {
-		// Enter the Keywords for the location
-		WebElement text = MyDriver.driver.findElement(By.xpath("//*[@id=\"text-input-where\"]"));
+	public void enterKeywordsWhereIndeed() {
+		WebElement text = MyDriver.driver.findElement(By.id("text-input-where"));
 		text.sendKeys(Keys.chord(Keys.CONTROL, "a"), "Alpes-maritimes");
+		text.sendKeys(Keys.ENTER);
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class HomePageAcess {
 		MyDriver.driver.switchTo().window(tabs.get(1));
 	}
 
-	public static void pause(int seconds) {
+	public void pause(int seconds) {
 		// Explicit wait
 		try {
 			Thread.sleep(seconds * 1000);
