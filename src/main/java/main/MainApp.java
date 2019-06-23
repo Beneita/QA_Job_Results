@@ -14,7 +14,6 @@ import website.objects.pageObjects.MeteoJobPageObject;
 
 public class MainApp {
 	public static void main(String[] args) {
-		System.out.println("Lancement de notre recherche de job de testeur!");
 
 		new MyDriver();
 		HomePageAcess hp = new HomePageAcess();
