@@ -73,18 +73,17 @@ public class ExtracteurOffresMultiSite {
 						// transformer valeur String nbJourPast en Long
 						daysToSubtract = Long.parseLong(nbJourPast);
 					}
-					// date de l'offre = date du jour - nb de jours depuis parution de l'annonce
-					dateOffre = LocalDate.now().minusDays(daysToSubtract);
+
 				} else {
-					// sinon prends la date du jour
-
-					dateOffre = LocalDate.now();
+					if (textDateAnnonce.contains("mois")) {
+						// transformer valeur String nbJourPast en Long
+						daysToSubtract = Long.parseLong(nbJourPast) * 30;
+					} else {
+						daysToSubtract = 0;
+					}
 				}
-
-				if (textDateAnnonce.contains("mois")) {
-					// transformer valeur String nbJourPast en Long
-					daysToSubtract = Long.parseLong(nbJourPast) * 30;
-				}
+				// date de l'offre = date du jour - nb de jours depuis parution de l'annonce
+				dateOffre = LocalDate.now().minusDays(daysToSubtract);
 				// si le site est indeed
 				if (siteName.contains("Indeed")) {
 					siteName = "Indeed";
