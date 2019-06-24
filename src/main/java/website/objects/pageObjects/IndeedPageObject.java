@@ -12,13 +12,15 @@ public class IndeedPageObject {
 		HomePageAcess hp = new HomePageAcess();
 
 		// INDEED //open, enter keywords and location, search
-		hp.openHomePage(WebsitesURLs.INDEED_HOME_PAGE); // open homePage String
+		hp.openHomePage(WebsitesURLs.INDEED_HOME_PAGE); // open homePage Indeed
 		String jobSite = "HomePageConstants.INDEED_HOME_PAGE";
-		hp.enterKeywordsWhat(jobSite);
-
 		// enter Keywords
-		hp.enterKeywordsWhere(); // enter location
-		hp.clickSearchIndeed(); // click on search //sort job offers
+		hp.enterKeywordsWhat(jobSite);
+		// enter location
+		hp.enterKeywordsWhereIndeed();
+		// click on search
+		// hp.clickSearchIndeed();
+		// sort job offers
 		ExtracteurOffresMultiSite jobOfr = new ExtracteurOffresMultiSite();
 		List<OffreEmploi> listOffres = jobOfr.extractOffersIndeed();
 

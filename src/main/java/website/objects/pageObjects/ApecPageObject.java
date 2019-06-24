@@ -1,23 +1,26 @@
 package website.objects.pageObjects;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.By;
+
+import config.MyDriver;
 import website.constants.WebsitesURLs;
 import website.objects.OffreEmploi;
 
 public class ApecPageObject {
 
 	public static List<OffreEmploi> run() {
-		// APEC
 		List<OffreEmploi> lesOffres = new ArrayList<>();
 
 		// open home page and do request
 		HomePageAcess hp = new HomePageAcess();
 
 		// open, enter keywords and location, search
-		hp.openHomePage(WebsitesURLs.APEC_HOME_PAGE); // open homePage
+		hp.openHomePage(WebsitesURLs.APEC_HOME_PAGE); // open homePage Apec
 		String jobSite2 = "HomePageConstants.APEC_HOME_PAGE";
 		hp.enterKeywordsWhat(jobSite2); // enter Keywords
 		hp.pause(2);
@@ -29,29 +32,32 @@ public class ApecPageObject {
 		return extracteur.extractOffersApec2();
 	}
 
+	public static String getTitreOffre(int i) {
+		String titre = MyDriver.driver.findElements(By.cssSelector(".offre-title .ng-binding")).get(i).getText();
+		return titre;
+	}
+
 	public static String getDescriptionOffre(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		String descript = MyDriver.driver.findElements(By.cssSelector("p.detail")).get(i).getText();
+		return descript;
 	}
 
 	public static LocalDate getDateAnnonce(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+		String dateString = MyDriver.driver.findElements(By.cssSelector(".pull-left.offre-date")).get(i).getText();
+		LocalDate dateOffre = LocalDate.parse(dateString, formatter);
+		return dateOffre;
 	}
 
 	public static String getLien(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		String offreLien = MyDriver.driver.findElements(By.cssSelector(".offre-title a")).get(i).getAttribute("href");
+		return offreLien;
 	}
 
-	public static String getLocalisation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public static String getTitreOffre() {
-		// TODO Auto-generated method stub
-		return null;
+	public static String getLocalisation(int i) {
+		String offreLocalisation = MyDriver.driver.findElements(By.cssSelector(".pull-left span.ng-scope")).get(i)
+				.getText();
+		return offreLocalisation;
 	}
 
 }

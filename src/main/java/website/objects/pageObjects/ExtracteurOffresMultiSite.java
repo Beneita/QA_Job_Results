@@ -8,12 +8,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import config.MyDriver;
-import website.constants.WebsitesURLs;
 import website.objects.OffreEmploi;
 
 public class ExtracteurOffresMultiSite {
 
-	private static final int NOMBRE_OFFRES = 3;
+	private static final int NOMBRE_OFFRES = 5;
 
 	public List<OffreEmploi> extractOffersIndeed() {
 		// listes de web elements
@@ -74,21 +73,22 @@ public class ExtracteurOffresMultiSite {
 						// transformer valeur String nbJourPast en Long
 						daysToSubtract = Long.parseLong(nbJourPast);
 					}
-					// date de l'offre = date du jour - nb de jours depuis parution de l'annonce
-					dateOffre = LocalDate.now().minusDays(daysToSubtract);
+
 				} else {
-					// sinon prends la date du jour
-
-					dateOffre = LocalDate.now();
+					if (textDateAnnonce.contains("mois")) {
+						// transformer valeur String nbJourPast en Long
+						daysToSubtract = Long.parseLong(nbJourPast) * 30;
+					} else {
+						daysToSubtract = 0;
+					}
 				}
-
-				if (textDateAnnonce.contains("mois")) {
-					// transformer valeur String nbJourPast en Long
-					daysToSubtract = Long.parseLong(nbJourPast) * 30;
-				}
+				// date de l'offre = date du jour - nb de jours depuis parution de l'annonce
+				dateOffre = LocalDate.now().minusDays(daysToSubtract);
 				// si le site est indeed
 				if (siteName.contains("Indeed")) {
 					siteName = "Indeed";
+				} else {
+					siteName = "";
 				}
 				// si le titre contient le mot 'testeur'
 				if (titre.contains("testeur")) {
@@ -105,23 +105,56 @@ public class ExtracteurOffresMultiSite {
 	}
 
 	public List<OffreEmploi> extractOffersApec2() {
-		System.out.println("Recuperations des offres de Aspec: On est sur la page de resultatsde la recherche");
 		List<OffreEmploi> lesOffres = new ArrayList<>();
+		HomePageAcess hp = new HomePageAcess();
+		for (int i = 0; i < NOMBRE_OFFRES; i++) {
+			// System.out.println("Recuperations des offres de Aspec: On est sur la page de
+			// resultatsde la recherche" + i);
+			// instanciation d'un objet OffreEmploi
+			OffreEmploi offre = new OffreEmploi();
+			hp.pause(5);
+			offre.setTitre(ApecPageObject.getTitreOffre(i));
+			offre.setDateAnnonc(ApecPageObject.getDateAnnonce(i));
+			offre.setLocalisation(ApecPageObject.getLocalisation(i));
+			if (MyDriver.driver.getTitle().contains("Apec")) {
+				offre.setSite("Apec");
+			} else {
+				offre.setSite("");
+			}
+			if (i == 0) {
+				offre.setDescription(ApecPageObject.getDescriptionOffre(i));
+				offre.setLien(ApecPageObject.getLien(i));
+			} else {
+				offre.setDescription(ApecPageObject.getDescriptionOffre(2 * i));
+				offre.setLien(ApecPageObject.getLien(2 * i));
+			}
+			lesOffres.add(offre);
+		}
+		return lesOffres;
+	}
+
+	public List<OffreEmploi> extractOffersMeteoJob() {
+		List<OffreEmploi> lesOffres = new ArrayList<>();
+		HomePageAcess hp = new HomePageAcess();
 
 		for (int i = 0; i < NOMBRE_OFFRES; i++) {
+
 			OffreEmploi offre = new OffreEmploi();
-			offre.setDescription(ApecPageObject.getDescriptionOffre(i));
-			offre.setDateAnnonc(ApecPageObject.getDateAnnonce(i));
-			offre.setLien(ApecPageObject.getLien(i));
-			offre.setLocalisation(ApecPageObject.getLocalisation());
-			offre.setSite(WebsitesURLs.APEC_HOME_PAGE);
-			offre.setTitre(ApecPageObject.getTitreOffre());
+			if (MyDriver.driver.getTitle().contains("Meteojob")) {
+				offre.setSite("MeteoJob");
+			} else {
+				offre.setSite("rien");
+			}
+			offre.setTitre(MeteoJobPageObject.getTitreOffre(i));
+			offre.setDateAnnonc(MeteoJobPageObject.getDateAnnonce(i));
+			offre.setLocalisation(MeteoJobPageObject.getLocalisation(i));
+			offre.setDescription(MeteoJobPageObject.getDescriptionOffre(i));
+			offre.setLien(MeteoJobPageObject.getLien(i));
 
 			lesOffres.add(offre);
 		}
 
 		return lesOffres;
-
 	}
 
 }
